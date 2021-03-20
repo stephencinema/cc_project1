@@ -12,7 +12,7 @@ display(){ // displays each star
 
 move(){ // moves each star
     this.pos.add(this.vel);
-    if (this.pos.x > width) {
+    if (this.pos.x > width) { // makes sure the stars don't end
       this.pos.x = random(-10, -10);
     }
   }
