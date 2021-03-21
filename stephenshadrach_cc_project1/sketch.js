@@ -24,6 +24,8 @@ function setup() {
 
 function draw() {
   background(0);
+  checkIfOverlapping();
+
   for (let i = 0; i < stars.length; i++) {
     stars[i].display();
     stars[i].move();
@@ -35,4 +37,14 @@ function draw() {
 
   s.display();
   s.move();
+}
+
+function checkIfOverlapping() { // checks if the sun overlaps with planet
+  if (s.overlaps(l)) {
+    background(255); // temporary test to see if function works
+  } else if (s.overlaps(r)) {
+    background(255); // temporary test to see if function works
+  } else if (s.overlaps(b)) {
+    background(255); // temporary test to see if function works
+  }
 }
