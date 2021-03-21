@@ -24,7 +24,6 @@ function setup() {
 
 function draw() {
   background(0);
-  checkIfOverlapping();
 
   for (let i = 0; i < stars.length; i++) {
     stars[i].display();
@@ -35,16 +34,21 @@ function draw() {
   r.display();
   l.display();
 
+  checkIfOverlapping();
+
   s.display();
   s.move();
 }
 
 function checkIfOverlapping() { // checks if the sun overlaps with planet
   if (s.overlaps(l)) {
-    background(255); // temporary test to see if function works
+    lr = new Planet(1100, 300, 125, '#FFFFFF'); // new temporary planet that represents light reflected on the lavender planet
+    lr.display();
   } else if (s.overlaps(r)) {
-    background(255); // temporary test to see if function works
+    rr = new Planet(700, 650, 100, '#FFFFFF'); // new temporary planet that represents light reflected on the red planet
+    rr.display();
   } else if (s.overlaps(b)) {
-    background(255); // temporary test to see if function works
+    br = new Planet(200, 300, 150, '#FFFFFF'); // new temporary planet that represents light reflected on the blue planet
+    br.display();
   }
 }
