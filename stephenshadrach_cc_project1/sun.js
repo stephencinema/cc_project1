@@ -23,7 +23,7 @@ class Sun { // creates a new sun object
 
   overlaps(other) { // boolean method to see if sun overlaps with planet
     let d = dist(this.pos.x, this.pos.y, other.pos.x, other.pos.y);
-    if (d < this.size/2 + other.size/2) {
+    if (d < this.size / 2 + other.size / 2) {
       return true;
     } else {
       return false;

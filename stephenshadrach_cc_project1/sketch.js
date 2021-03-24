@@ -9,6 +9,7 @@
 let planets, stars = [];
 let l, b, r;
 let s;
+let angle;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -16,6 +17,7 @@ function setup() {
   b = new Planet(700, 650, 100, '#091973');
   r = new Planet(1100, 350, 125, '#991616');
   s = new Sun(1700, 500, 300, '#cfc934');
+  angle = TWO_PI / 15;
 
   for (let i = 0; i < 100; i++) {
     stars[i] = new Star();
@@ -34,21 +36,27 @@ function draw() {
   b.display();
   r.display();
 
-  checkIfOverlapping();
+  checkOverlap();
 
   s.display();
   s.move();
 }
 
-function checkIfOverlapping() { // checks if the sun overlaps with planet
+function checkOverlap() { // checks if the sun overlaps with planet
   if (s.overlaps(l)) {
-    lr = new Planet(200, 300, 150, '#FFFFFF'); // new temporary planet that represents light reflected on the lavender planet
+    lr = new Planet(200, 300, 150, '#C6ADD9'); // new planet that represents light reflected on the lavender planet
+    l.reflectedDisplay(angle);
     lr.display();
+    angle += .001; // makes lines move around the planet
   } else if (s.overlaps(b)) {
-    br = new Planet(700, 650, 100, '#FFFFFF'); // new temporary planet that represents light reflected on the blue planet
+    br = new Planet(700, 650, 100, '#0090F5'); // new planet that represents light reflected on the blue planet
+    b.reflectedDisplay(angle);
     br.display();
+    angle += .001; // makes lines move around the planet
   } else if (s.overlaps(r)) {
-    rr = new Planet(1100, 350, 125, '#FFFFFF'); // new temporary planet that represents light reflected on the red planet
+    rr = new Planet(1100, 350, 125, '#FF7E8F'); // new planet that represents light reflected on the red planet
+    r.reflectedDisplay(angle);
     rr.display();
+    angle += .001; // makes lines move around the planet
   }
 }
