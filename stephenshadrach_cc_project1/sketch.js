@@ -17,6 +17,7 @@ function setup() {
   b = new Planet(700, 650, 100, '#091973');
   r = new Planet(1100, 350, 125, '#991616');
   s = new Sun(1700, 500, 300, '#cfc934');
+
   angle = TWO_PI / 15;
 
   for (let i = 0; i < 100; i++) {
@@ -45,18 +46,19 @@ function draw() {
 function checkOverlap() { // checks if the sun overlaps with planet
   if (s.overlaps(l)) {
     lr = new Planet(200, 300, 150, '#C6ADD9'); // new planet that represents light reflected on the lavender planet
-    l.reflectedDisplay(angle);
     lr.display();
+    lr.reflectedDisplay(angle);
     angle += .001; // makes lines move around the planet
   } else if (s.overlaps(b)) {
     br = new Planet(700, 650, 100, '#0090F5'); // new planet that represents light reflected on the blue planet
-    b.reflectedDisplay(angle);
-    br.display();
+    br.display()
+    br.reflectedDisplay(angle);
     angle += .001; // makes lines move around the planet
   } else if (s.overlaps(r)) {
     rr = new Planet(1100, 350, 125, '#FF7E8F'); // new planet that represents light reflected on the red planet
-    r.reflectedDisplay(angle);
+    //r.reflectedDisplay(angle);
     rr.display();
+    rr.reflectedDisplay(angle);
     angle += .001; // makes lines move around the planet
   }
 }

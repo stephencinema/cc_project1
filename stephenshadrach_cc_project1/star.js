@@ -2,10 +2,11 @@ class Star { // creates a new star object
   constructor() {
     this.pos = createVector(random(width), random(height));
     this.vel = createVector(.5, 0);
+    this.color = color(255 - random(0, 50), 255 - random(0, 50), 255 - random(0, 50));
   }
 
   display() { // displays each star
-    stroke(255);
+    stroke(this.color);
     strokeWeight(5);
     point(this.pos.x, this.pos.y);
   }
